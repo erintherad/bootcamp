@@ -18,8 +18,8 @@ angular.module('bootcamp', ['ngRoute'])
 
 		$scope.searchTag = function() {
 			var tag = $scope.tag.replace(/\s+/, '');
-			var url = 'http://api.giphy.com/v1/gifs/search?q=' + tag + '&api_key=dc6zaTOxFJmzC&callback=JSON_CALLBACK';
-				$http.jsonp(url)
+			var url = 'http://api.giphy.com/v1/gifs/search?q=' + tag + '&api_key=dc6zaTOxFJmzC';
+				$http.get(url)
 				.then(function(response) {
 					$scope.tag = '';
 					$scope.gifs = response.data.data;
