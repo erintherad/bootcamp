@@ -1,6 +1,6 @@
 <h1>Bootcamp Reactions</h1>
 <hr>
-<form ng-submit="searchTag()" class="form-inline">
+<form ng-submit="searchGif()" class="form-inline">
 	<div class="form-group">
 		<input class="form-control" type="text" ng-model="tag" placeholder="Search for a gif reaction">
 	</div>
@@ -10,6 +10,12 @@
 <br>
 <div class="row" ng-show="gifs.length > 0">
 	<div class="col-md-3" ng-repeat="gif in gifs">
-		<div>{{gifs}}</div>
+		<div class="thumbnail">
+			<img ng-src="{{ gif.images.fixed_height.url }}">
+			<br>
+			<p>
+				<a class="center-block" href="javascript:void(0)" ng-click="saveGif(gif)">Add to the list!</a>
+			</p>
+		</div>
 	</div>
 </div>
