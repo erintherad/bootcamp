@@ -9,12 +9,12 @@
 <br>
 <br>
 <div class="row" ng-show="gifs.length > 0">
-	<div class="col-md-3" ng-repeat="gif in gifs">
+	<div class="col-md-3" ng-repeat="gif in gifs track by $index">
 		<div class="thumbnail">
 			<img ng-src="{{ gif.images.fixed_height.url }}">
 			<br>
 			<p>
-				<a class="center-block" href="javascript:void(0)" ng-click="saveGif(gif)">Add to the list!</a>
+				<a class="center-block" href="#" data-gif-index="{{$index}}" ng-click="saveGif(gif)">{{saveText}}</a>
 			</p>
 		</div>
 	</div>
