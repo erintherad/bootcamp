@@ -9,13 +9,16 @@
 <br>
 <br>
 <div class="row" ng-show="gifs.length > 0">
-	<div class="col-md-3" ng-repeat="gif in gifs track by $index">
+	<div class="col-md-3 text-center" ng-repeat="gif in gifs track by $index">
 		<div class="thumbnail">
-			<img ng-src="{{ gif.images.fixed_height.url }}">
+			<img class="img-responsive" ng-src="{{ gif.images.fixed_height.url }}">
 			<br>
-			<p>
-				<a class="center-block" href="#" data-gif-index="{{$index}}" ng-click="saveGif(gif)">{{saveText}}</a>
-			</p>
+			<form ng-class="class" ng-submit="saveGif(gif, title)" class="form-inline">
+				<div class="form-group">
+					<input class="form-control" type="text" ng-model="title" placeholder= "Title your reaction!">
+					<input type="submit" value="Add">
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

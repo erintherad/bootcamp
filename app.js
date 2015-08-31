@@ -24,8 +24,18 @@ angular.module('bootcamp', ['ngRoute'])
 }])
 
 .controller('MainCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+	// $scope.class = "hidden";
+
+	// if ($scope.class === "hidden")
+ //        $scope.class = "block";
+ //    else 
+ //        $scope.class = "hidden";
+ //    if ($scope.block === "block")
+ //        $scope.block = "hidden";
+ //    else
+ //        $scope.block = "block";
+
 	$scope.gifs = [];
-	$scope.saveText = "Save this image!";
 
 	$scope.searchGif = function() {
 		var tag = $scope.tag.replace(/\s+/, '');
@@ -37,14 +47,14 @@ angular.module('bootcamp', ['ngRoute'])
 		});
 	};
 
-	$scope.saveGif = function(gif) {
-		$scope.saveText = "something else";
+	$scope.saveGif = function(gif, title) {
+
 		if(!localStorage.gifs) {
 			localStorage.gifs = JSON.stringify([]);
 		}
 
 		var toSave = {
-			title: 'sad face',
+			title: title,
 			url: gif.images.fixed_height.url
 		};
 
