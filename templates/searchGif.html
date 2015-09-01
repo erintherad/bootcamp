@@ -9,16 +9,22 @@
 <br>
 <br>
 <div class="row" ng-show="gifs.length > 0">
-	<div class="col-md-3 text-center" ng-repeat="gif in gifs track by $index">
+	<div class="col-md-3 text-center" ng-repeat="gif in gifs">
 		<div class="thumbnail">
 			<img class="img-responsive" ng-src="{{ gif.images.fixed_height.url }}">
 			<br>
-			<form ng-class="class" ng-submit="saveGif(gif, title)" class="form-inline">
+			<a href="#" ng-show="!saved" ng-click="show = !show">Share</a>
+			<a ng-href="/" ng-show="saved">View the list!</a>
+			<br>
+			<br>
+			<br>
+			<form ng-show="show" ng-submit="saveGif(gif, title)" class="form-inline">
 				<div class="form-group">
 					<input class="form-control" type="text" ng-model="title" placeholder= "Title your reaction!">
-					<input type="submit" value="Add">
+					<input type="submit" value="Add" ng-click="show = false; saved = true">
 				</div>
 			</form>
+			
 		</div>
 	</div>
 </div>

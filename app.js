@@ -24,18 +24,9 @@ angular.module('bootcamp', ['ngRoute'])
 }])
 
 .controller('MainCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
-	// $scope.class = "hidden";
-
-	// if ($scope.class === "hidden")
- //        $scope.class = "block";
- //    else 
- //        $scope.class = "hidden";
- //    if ($scope.block === "block")
- //        $scope.block = "hidden";
- //    else
- //        $scope.block = "block";
 
 	$scope.gifs = [];
+	$scope.title = '';
 
 	$scope.searchGif = function() {
 		var tag = $scope.tag.replace(/\s+/, '');
@@ -48,18 +39,18 @@ angular.module('bootcamp', ['ngRoute'])
 	};
 
 	$scope.saveGif = function(gif, title) {
-
 		if(!localStorage.gifs) {
 			localStorage.gifs = JSON.stringify([]);
 		}
 
 		var toSave = {
 			title: title,
-			url: gif.images.fixed_height.url
+			url: gif.images.fixed_height.url,
+			created_at: Date.now()
 		};
 
 		var allGifs = JSON.parse(localStorage.gifs);
-		allGifs.push(toSave);
+		allGifs.unshift(toSave);
 
 		localStorage.gifs = JSON.stringify(allGifs);
 	};
@@ -70,6 +61,12 @@ angular.module('bootcamp', ['ngRoute'])
 	if(localStorage.gifs) {
 		$scope.listGifs = JSON.parse(localStorage.gifs);
 	}
+
+	$scope.deleteGif = function(gif) {
+		var index = $scope.listGifs.indexOf(gif);
+		$scope.listGifs.splice(index, 1);
+	}
+
 }])
 
 
