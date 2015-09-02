@@ -57,6 +57,17 @@ app.put('/api/gifs/:id', function (req, res) {
   });
 });
 
+// delete gif
+app.delete('/api/gifs/:id', function (req, res) {
+	// set the value of the id
+	var targetId = req.params.id;
+
+	// find gif in db by id and remove
+	Gif.findOneAndRemove({_id: targetId}, function (err, deletedGif) {
+		res.json(deletedGif);
+	});
+});
+
 // set location for static files
 app.use(express.static(__dirname + '/public'));
 
