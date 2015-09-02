@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 // send back all gifs
 app.get('/api/gifs', function (req, res) {
-  Gif.find({}, function (err, gifs) {
+  Gif.find({}).sort('-date').exec(function (err, gifs) {
     res.json(gifs);
   });
 });
