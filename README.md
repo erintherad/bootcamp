@@ -6,4 +6,10 @@ This app allows users to create and post gifs on all their coding bootcamp react
 
 To use this app:
 
+1. Fork it!
+2. NPM install:
+	-Mongoose
+	-Body-Parser
+	-Express
+
 
