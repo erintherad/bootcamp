@@ -30,7 +30,7 @@ angular.module('bootcamp', ['ngRoute', 'ngResource'])
 
 	$scope.searchGif = function() {
 		var tag = $scope.tag.replace(/\s+/, '');
-		var url = 'http://api.giphy.com/v1/gifs/search?q=' + tag + '&api_key=dc6zaTOxFJmzC';
+		var url = 'https://api.giphy.com/v1/gifs/search?q=' + tag + '&api_key=dc6zaTOxFJmzC';
 		$http.get(url)
 		.then(function(response) {
 			$scope.tag = '';
