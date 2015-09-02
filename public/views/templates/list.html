@@ -1,16 +1,16 @@
 <div class="jumbotron">
 	<h1 class="text-center">Bootcamp Reactions</h1>
 </div>
-<div class="row" ng-show="listGifs.length > 0" ng-repeat="listGif in listGifs">
+<div class="row" ng-show="gifs.length > 0" ng-repeat="gif in gifs">
 	<div class="col-md-3"></div>
 	<div class="col-md-6">
 		<div class="well" id="list">
-			<h3 class="text-center">{{ listGif.title }}</h3>
-			<img class="img-responsive center-block" ng-src="{{ listGif.url }}">
+			<h3 class="text-center">{{ gif.title }}</h3>
+			<img class="img-responsive center-block" ng-src="{{ gif.url }}">
 			<br>
 			<div class="text-center">
-				<span>{{ listGif.created_at | date:'MMM dd, yyyy' }} |</span>
-				<span>{{ listGif.created_at | date:'h:mm a' }}</span>
+				<span>{{ gif.date | date:'MMM dd, yyyy' }} |</span>
+				<span>{{ gif.date | date:'h:mm a' }}</span>
 			</div>
 			<br>
 			<button class="btn btn-danger center-block" ng-click="deleteGif(gif)">Delete</button>

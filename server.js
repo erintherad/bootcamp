@@ -61,7 +61,7 @@ app.put('/api/gifs/:id', function (req, res) {
 app.use(express.static(__dirname + '/public'));
 
 // load public/index.html file (angular app)
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 });
 

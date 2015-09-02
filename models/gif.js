@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var GifSchema = new Schema({
   title: String,
   url: String,
-  date: String
+  date: Date
 });
 
 var Gif = mongoose.model('Gif',GifSchema);
