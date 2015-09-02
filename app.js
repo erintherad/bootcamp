@@ -1,6 +1,6 @@
 angular.module('bootcamp', ['ngRoute'])
 
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider
 
 	.when('/', {
@@ -11,11 +11,6 @@ angular.module('bootcamp', ['ngRoute'])
 	.when('/search', {
 		templateUrl: 'templates/searchGif.html',
 		controller: 'MainCtrl'
-	})
-
-	.when('/gifs/:id', {
-		templateUrl: 'partials/gifShow.html',
-		controller: 'GifShowCtrl'
 	})
 
 	.when('/about', {
@@ -91,20 +86,6 @@ angular.module('bootcamp', ['ngRoute'])
 
 }])
 
-.controller('GifShowCtrl', '$http' ['$scope', '$routeParams', function ($scope, $http, $routeParams) {
-	var gifId = $routeParams.id;
-
-	$http.get('http://api.giphy.com/v1/gifs/search?q=' + tag + '&api_key=dc6zaTOxFJmzC' + gifId )
-	.then(function(response) {
-    $scope.gif = response.data;
-	});
-
-	$scope.deleteGif = function(gif) {
-		var index = $scope.listGifs.indexOf(gif);
-		$scope.listGifs.splice(index, 1);
-	};
-
-}])
 
 
 ;
