@@ -1,0 +1,25 @@
+{
+  "name": "bootcamp",
+  "version": "1.0.0",
+  "description": "A bootcamp reaction app that utilizes Giphy's API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erintherad/bootcamp.git"
+  },
+  "author": "Erin Mahoney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erintherad/bootcamp/issues"
+  },
+  "homepage": "https://github.com/erintherad/bootcamp",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.5"
+  }
+}
